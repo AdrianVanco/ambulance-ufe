@@ -55,6 +55,7 @@ export class XvancoaAmbulanceWlApp {
       <Host>
         { element === "editor"
         ? <xvancoa-ambulance-wl-editor entry-id={entryId}
+            ambulance-id={this.ambulanceId} api-base={this.apiBase}
             oneditor-closed={ () => navigate("./list")} >
           </xvancoa-ambulance-wl-editor>
         : <xvancoa-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
