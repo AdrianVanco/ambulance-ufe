@@ -20,8 +20,25 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XvancoaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath": string;
+    }
+    interface XvancoaAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XvancoaAmbulanceWlList {
     }
+}
+export interface XvancoaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXvancoaAmbulanceWlEditorElement;
+}
+export interface XvancoaAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXvancoaAmbulanceWlListElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -30,7 +47,41 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXvancoaAmbulanceWlAppElement extends Components.XvancoaAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXvancoaAmbulanceWlAppElement: {
+        prototype: HTMLXvancoaAmbulanceWlAppElement;
+        new (): HTMLXvancoaAmbulanceWlAppElement;
+    };
+    interface HTMLXvancoaAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXvancoaAmbulanceWlEditorElement extends Components.XvancoaAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXvancoaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXvancoaAmbulanceWlEditorElement, ev: XvancoaAmbulanceWlEditorCustomEvent<HTMLXvancoaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXvancoaAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXvancoaAmbulanceWlEditorElement, ev: XvancoaAmbulanceWlEditorCustomEvent<HTMLXvancoaAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXvancoaAmbulanceWlEditorElement: {
+        prototype: HTMLXvancoaAmbulanceWlEditorElement;
+        new (): HTMLXvancoaAmbulanceWlEditorElement;
+    };
+    interface HTMLXvancoaAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXvancoaAmbulanceWlListElement extends Components.XvancoaAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXvancoaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXvancoaAmbulanceWlListElement, ev: XvancoaAmbulanceWlListCustomEvent<HTMLXvancoaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXvancoaAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXvancoaAmbulanceWlListElement, ev: XvancoaAmbulanceWlListCustomEvent<HTMLXvancoaAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXvancoaAmbulanceWlListElement: {
         prototype: HTMLXvancoaAmbulanceWlListElement;
@@ -38,6 +89,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xvancoa-ambulance-wl-app": HTMLXvancoaAmbulanceWlAppElement;
+        "xvancoa-ambulance-wl-editor": HTMLXvancoaAmbulanceWlEditorElement;
         "xvancoa-ambulance-wl-list": HTMLXvancoaAmbulanceWlListElement;
     }
 }
@@ -56,7 +109,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XvancoaAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath"?: string;
+    }
+    interface XvancoaAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XvancoaAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface XvancoaAmbulanceWlList {
+        "onEntry-clicked"?: (event: XvancoaAmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface MyComponentAttributes {
@@ -64,9 +128,17 @@ declare namespace LocalJSX {
         "middle": string;
         "last": string;
     }
+    interface XvancoaAmbulanceWlAppAttributes {
+        "basePath": string;
+    }
+    interface XvancoaAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "xvancoa-ambulance-wl-app": Omit<XvancoaAmbulanceWlApp, keyof XvancoaAmbulanceWlAppAttributes> & { [K in keyof XvancoaAmbulanceWlApp & keyof XvancoaAmbulanceWlAppAttributes]?: XvancoaAmbulanceWlApp[K] } & { [K in keyof XvancoaAmbulanceWlApp & keyof XvancoaAmbulanceWlAppAttributes as `attr:${K}`]?: XvancoaAmbulanceWlAppAttributes[K] } & { [K in keyof XvancoaAmbulanceWlApp & keyof XvancoaAmbulanceWlAppAttributes as `prop:${K}`]?: XvancoaAmbulanceWlApp[K] };
+        "xvancoa-ambulance-wl-editor": Omit<XvancoaAmbulanceWlEditor, keyof XvancoaAmbulanceWlEditorAttributes> & { [K in keyof XvancoaAmbulanceWlEditor & keyof XvancoaAmbulanceWlEditorAttributes]?: XvancoaAmbulanceWlEditor[K] } & { [K in keyof XvancoaAmbulanceWlEditor & keyof XvancoaAmbulanceWlEditorAttributes as `attr:${K}`]?: XvancoaAmbulanceWlEditorAttributes[K] } & { [K in keyof XvancoaAmbulanceWlEditor & keyof XvancoaAmbulanceWlEditorAttributes as `prop:${K}`]?: XvancoaAmbulanceWlEditor[K] };
         "xvancoa-ambulance-wl-list": XvancoaAmbulanceWlList;
     }
 }
@@ -75,6 +147,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xvancoa-ambulance-wl-app": LocalJSX.IntrinsicElements["xvancoa-ambulance-wl-app"] & JSXBase.HTMLAttributes<HTMLXvancoaAmbulanceWlAppElement>;
+            "xvancoa-ambulance-wl-editor": LocalJSX.IntrinsicElements["xvancoa-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLXvancoaAmbulanceWlEditorElement>;
             "xvancoa-ambulance-wl-list": LocalJSX.IntrinsicElements["xvancoa-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLXvancoaAmbulanceWlListElement>;
         }
     }
