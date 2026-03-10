@@ -21,6 +21,8 @@ export namespace Components {
         "middle": string;
     }
     interface XvancoaAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ""
          */
@@ -30,6 +32,8 @@ export namespace Components {
         "entryId": string;
     }
     interface XvancoaAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface XvancoaAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -110,6 +114,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface XvancoaAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ""
          */
@@ -120,6 +126,8 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: XvancoaAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface XvancoaAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: XvancoaAmbulanceWlListCustomEvent<string>) => void;
     }
 
@@ -130,16 +138,22 @@ declare namespace LocalJSX {
     }
     interface XvancoaAmbulanceWlAppAttributes {
         "basePath": string;
+        "apiBase": string;
+        "ambulanceId": string;
     }
     interface XvancoaAmbulanceWlEditorAttributes {
         "entryId": string;
+    }
+    interface XvancoaAmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
     }
 
     interface IntrinsicElements {
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
         "xvancoa-ambulance-wl-app": Omit<XvancoaAmbulanceWlApp, keyof XvancoaAmbulanceWlAppAttributes> & { [K in keyof XvancoaAmbulanceWlApp & keyof XvancoaAmbulanceWlAppAttributes]?: XvancoaAmbulanceWlApp[K] } & { [K in keyof XvancoaAmbulanceWlApp & keyof XvancoaAmbulanceWlAppAttributes as `attr:${K}`]?: XvancoaAmbulanceWlAppAttributes[K] } & { [K in keyof XvancoaAmbulanceWlApp & keyof XvancoaAmbulanceWlAppAttributes as `prop:${K}`]?: XvancoaAmbulanceWlApp[K] };
         "xvancoa-ambulance-wl-editor": Omit<XvancoaAmbulanceWlEditor, keyof XvancoaAmbulanceWlEditorAttributes> & { [K in keyof XvancoaAmbulanceWlEditor & keyof XvancoaAmbulanceWlEditorAttributes]?: XvancoaAmbulanceWlEditor[K] } & { [K in keyof XvancoaAmbulanceWlEditor & keyof XvancoaAmbulanceWlEditorAttributes as `attr:${K}`]?: XvancoaAmbulanceWlEditorAttributes[K] } & { [K in keyof XvancoaAmbulanceWlEditor & keyof XvancoaAmbulanceWlEditorAttributes as `prop:${K}`]?: XvancoaAmbulanceWlEditor[K] };
-        "xvancoa-ambulance-wl-list": XvancoaAmbulanceWlList;
+        "xvancoa-ambulance-wl-list": Omit<XvancoaAmbulanceWlList, keyof XvancoaAmbulanceWlListAttributes> & { [K in keyof XvancoaAmbulanceWlList & keyof XvancoaAmbulanceWlListAttributes]?: XvancoaAmbulanceWlList[K] } & { [K in keyof XvancoaAmbulanceWlList & keyof XvancoaAmbulanceWlListAttributes as `attr:${K}`]?: XvancoaAmbulanceWlListAttributes[K] } & { [K in keyof XvancoaAmbulanceWlList & keyof XvancoaAmbulanceWlListAttributes as `prop:${K}`]?: XvancoaAmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };
