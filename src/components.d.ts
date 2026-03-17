@@ -29,6 +29,8 @@ export namespace Components {
         "basePath": string;
     }
     interface XvancoaAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface XvancoaAmbulanceWlList {
@@ -122,6 +124,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface XvancoaAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: XvancoaAmbulanceWlEditorCustomEvent<string>) => void;
     }
@@ -143,6 +147,8 @@ declare namespace LocalJSX {
     }
     interface XvancoaAmbulanceWlEditorAttributes {
         "entryId": string;
+        "ambulanceId": string;
+        "apiBase": string;
     }
     interface XvancoaAmbulanceWlListAttributes {
         "apiBase": string;
