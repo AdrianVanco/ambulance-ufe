@@ -53,6 +53,27 @@ describe('xvancoa-ambulance-wl-list', () => {
     expect(items.length).toEqual(expectedPatients);
   });
 
+  it('emits selected entry id when a row is clicked', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify(sampleEntries));
+
+    const page = await newSpecPage({
+      components: [XvancoaAmbulanceWlList],
+      html: `<xvancoa-ambulance-wl-list ambulance-id="test-ambulance" api-base="http://test/api"></xvancoa-ambulance-wl-list>`,
+    });
+
+    const emittedIds: string[] = [];
+    page.root.addEventListener('entry-clicked', (event: CustomEvent<string>) => {
+      emittedIds.push(event.detail);
+    });
+
+    await page.waitForChanges();
+
+    const items = page.root.shadowRoot.querySelectorAll('md-list-item');
+    items[0].dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
+
+    expect(emittedIds).toEqual(['entry-1']);
+  });
+
   it('renders error message on network issues', async () => {
     // Mock the network error
     fetchMock.mockRejectOnce(new Error('Network Error'));
